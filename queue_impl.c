@@ -45,7 +45,7 @@ Element dequeue(Queue queue){
             queue->first += 1;
         }
         queue->size -= 1;
-        answer = queue->items[queue->first];
+        answer = queue->items[queue->first];        
     }
     return answer;
 }
