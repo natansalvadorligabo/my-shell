@@ -31,7 +31,7 @@ gcc -o my-shell.out *.c
 ```
 
 ```bash
-./my-shell
+./my-shell.out
 ```
 
 ## Uso
