@@ -70,9 +70,7 @@ int main() {
         }
 
         // ADICIONA COMANDO AO HISTÓRICO:
-        if (strcmp(command, "history") != 0) {
-            enqueue(history, command);
-        }
+        enqueue(history, command);
     }
 
     return 0;
@@ -149,6 +147,11 @@ void process_command_history(Queue history) {
     int queue_size = size(history);
     if (is_empty(history)) {
         printf("No commands in history.\n");
+    } else if(is_full(history)) {
+        printf("error: queue is full, clearing the command history...\n");
+        for (int i = 0; i < queue_size; i++){
+            dequeue(history);
+        }
     } else {
         printf("Command history:\n");
         for (int i = 0; i < queue_size; i++) {
