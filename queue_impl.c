@@ -1,4 +1,5 @@
 #include "queue.h"
+#include <string.h>
 
 struct queue{
     Element items[QUEUE_MAX_SIZE];
@@ -29,7 +30,7 @@ bool enqueue(Queue queue, Element new_element){
         } else {
             queue->last += 1;
         }
-        queue->items[queue->last] = new_element;
+        queue->items[queue->last] = strdup(new_element); // guarda copia da string
         queue->size += 1;
         answer = true;
     }
@@ -45,7 +46,7 @@ Element dequeue(Queue queue){
             queue->first += 1;
         }
         queue->size -= 1;
-        answer = queue->items[queue->first];        
+        answer = queue->items[queue->first];    
     }
     return answer;
 }

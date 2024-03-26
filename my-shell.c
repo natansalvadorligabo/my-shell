@@ -70,7 +70,9 @@ int main() {
         }
 
         // ADICIONA COMANDO AO HISTÓRICO:
-        enqueue(history, command);
+        if (strcmp(command, "history") != 0) {
+            enqueue(history, command);
+        }
     }
 
     return 0;
@@ -145,16 +147,15 @@ void execute_command_external(char *command, char *parameters[]) {
 
 void process_command_history(Queue history) {
     int queue_size = size(history);
-
-    if (queue_size == 0) {
-        printf("warning: no commands in history\n");
-        return;
-    }
-
-    for (int i = 0; i < queue_size; i++) {
-        char* temp_string = dequeue(history);
-        printf("[%d]: %s\n", i + 1, temp_string);
-        enqueue(history, temp_string);
+    if (is_empty(history)) {
+        printf("No commands in history.\n");
+    } else {
+        printf("Command history:\n");
+        for (int i = 0; i < queue_size; i++) {
+            char* command = dequeue(history);
+            printf("[%d]: %s\n", i + 1, command);
+            enqueue(history, command);
+        }
     }
 }
 
@@ -167,13 +168,9 @@ void create_alias(char **parameters) {
     if (alias == NULL || command == NULL) {
         printf("error: invalid alias command\n");
         free(parameters_copy);
-        return;
-    }
-
-    if (strlen(alias) >= MAX_ALIAS_LENGTH || strlen(command) >= MAX_INPUT_LENGTH) {
+    }else if (strlen(alias) >= MAX_ALIAS_LENGTH || strlen(command) >= MAX_INPUT_LENGTH) {
         printf("error: alias or command too long\n");
         free(parameters_copy);
-        return;
     }
 
     // inicializa struct do alias e define como vazia
