@@ -5,6 +5,7 @@
 ## Descrição
 
 O "my-shell" é um projeto desenvolvido por [Giovana Trevizan Barbosa](https://github.com/giovanatrevizanbarbosa/) e [Natan Salvador Ligabô](https://github.com/natansalvadorligabo/), criado com o propósito de fornecer uma experiência prática para entender os conceitos fundamentais de Sistemas Operacionais. Este shell básico permite explorar o funcionamento de processos, chamadas de sistema, gerenciamento de processos e outras funcionalidades do sistema operacional.
+Este projeto é parte de uma avaliação do curso ministrado pelo professor [Marcelo Criscuolo](https://www.linkedin.com/in/mcrisc/).
 
 ## Funcionalidades
 
